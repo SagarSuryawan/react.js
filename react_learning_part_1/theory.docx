@@ -1,3 +1,6 @@
+What is react and inroduction.?
+=> "React is a JavaScript library developed by Facebook for building user interfaces, especially for single-page applications. It allows developers to create reusable UI components and manage the state of an application efficiently. React uses a virtual DOM to optimize rendering performance, making it faster and more efficient than directly manipulating the real DOM."
+
 
 Introduction to SPA [Single Page Application]
 => SPA is a web application that load single html page and dynamically update content without reload whole page.
