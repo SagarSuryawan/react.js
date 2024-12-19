@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 Introduction to SPA [Single Page Application]
 => SPA is a web application that load single html page and dynamically update content without reload whole page.
@@ -25,3 +26,34 @@ export default App;
 
 componet are in form of function althrough,components are made in two ways i) function and secound is class, majorly components made in function.
 
+=======
+What is react and inroduction.?
+=> "React is a JavaScript library developed by Facebook for building user interfaces, especially for single-page applications. It allows developers to create reusable UI components and manage the state of an application efficiently. React uses a virtual DOM to optimize rendering performance, making it faster and more efficient than directly manipulating the real DOM."
+
+
+Introduction to SPA [Single Page Application]
+=> SPA is a web application that load single html page and dynamically update content without reload whole page.
+
+
+Introduction to JSX [javascript XML]
+=> JSX is a synax extension.it allow me to write HTML like code directly in javascript
+
+code
+
+function App(){
+    return(
+        <div className="App>
+        <button>
+        <span>
+        Submit
+        </span>
+        </button>
+        </div>
+    )
+}
+
+export default App;
+
+componet are in form of function althrough,components are made in two ways i) function and secound is class, majorly components made in function.
+
+>>>>>>> 1b9886ae0f0f06e98eb19095bb23ef1551810ffb
