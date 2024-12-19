@@ -3,6 +3,7 @@ Introduction to SPA [Single Page Application]
 => SPA is a web application that load single html page and dynamically update content without reload whole page.
 
 
+
 Introduction to JSX [javascript XML]
 => JSX is a synax extension.it allow me to write HTML like code directly in javascript
 
