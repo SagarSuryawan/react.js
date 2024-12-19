@@ -1,11 +1,35 @@
-<<<<<<< HEAD
+                           PART-1
+                            CREATE REACT APP
+#Commands for To Create react App are following
+npx create-react-app appname(your app name,do not use capital letters.)
 
-Introduction to SPA [Single Page Application]
+                        REMOVE IRRELEVENT STUFF
+
+from public folder = robot.txt,
+from src folder =   setuptest.js,App.test.js, clear css from App.css and index.css,
+from App.js = clear all content from div which className= "App"
+as of now index.js is as it is.
+in public folder index.htm, there element which id = "root".Exactly this Page is render in App. 
+
+                        ANOTHER WAY TO SET UP REACT APP USING VITE (preferable)
+#commands for to create react vite app.
+npm create vite@latest
+vites gives interactive promts like project name, framework.
+onces all sacapfolding done. cd to vite react project.
+check folder named as project name .There is no folder like node modules.
+vite do not install node modules by default.so you can do it youe own.
+clear css from index.css and app.css
+
+
+
+
+
+#Introduction to SPA [Single Page Application]
 => SPA is a web application that load single html page and dynamically update content without reload whole page.
 
+  
 
-
-Introduction to JSX [javascript XML]
+#Introduction to JSX [javascript XML]
 => JSX is a synax extension.it allow me to write HTML like code directly in javascript
 
 code
@@ -26,34 +50,3 @@ export default App;
 
 componet are in form of function althrough,components are made in two ways i) function and secound is class, majorly components made in function.
 
-=======
-What is react and inroduction.?
-=> "React is a JavaScript library developed by Facebook for building user interfaces, especially for single-page applications. It allows developers to create reusable UI components and manage the state of an application efficiently. React uses a virtual DOM to optimize rendering performance, making it faster and more efficient than directly manipulating the real DOM."
-
-
-Introduction to SPA [Single Page Application]
-=> SPA is a web application that load single html page and dynamically update content without reload whole page.
-
-
-Introduction to JSX [javascript XML]
-=> JSX is a synax extension.it allow me to write HTML like code directly in javascript
-
-code
-
-function App(){
-    return(
-        <div className="App>
-        <button>
-        <span>
-        Submit
-        </span>
-        </button>
-        </div>
-    )
-}
-
-export default App;
-
-componet are in form of function althrough,components are made in two ways i) function and secound is class, majorly components made in function.
-
->>>>>>> 1b9886ae0f0f06e98eb19095bb23ef1551810ffb
