@@ -20,6 +20,21 @@ check folder named as project name .There is no folder like node modules.
 vite do not install node modules by default.so you can do it youe own.
 clear css from index.css and app.css
 
+                                JSX (REFFER TO NOTEBOOK)
+JAVASCRIPT XML is a syntax extension for javascrit commonly used with react to describe what ui should like. 
+
+                                BASIC OF COMPONENTS (REFFER TO NOTEBOOK)
+components is normal javascript function.the name of components always start with capital letter.
+while using components < Navbar />
+
+                                IMPORT AND EXPORT
+import export are used to share a code between different files and modules.
+export used expose code or function to other files two ways exoprt first is default export and named export.
+there are multiple named function to exoprts in while importing named function import {a,b,c} from "./app.js".
+
+
+
+
 
 
 
