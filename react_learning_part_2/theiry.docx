@@ -1,0 +1,58 @@
+Hooks
+what are hooks?
+=>Hooks are simple utility function or helper function.
+
+ 
+Example=>   
+import {useState} from "react"
+hooks are provided from react 
+
+function Counter() {
+
+    let x= 0 ;
+
+    return (
+        <>
+        Count : {x}
+        <button onClick = {()=> x+=1}>Incremeent<button/>
+        <button onClick = {()=> x-=1}>Decrement<button/>
+        </>
+    )
+}
+
+-when you clicked on ince or dec button values does increase or decrease. x is a regular local variable.
+-react does not track local variable automatically.local variables are not a part of react state management system.
+-react re-render components when state and props.
+when state variables changes component re-render.
+if in any componet there are two state variables. any one of this state variabes changes component re -render but other values is as it is.secound state value does not refresh.
+
+code
+import {useState} from "react"
+
+function Counter () {
+
+   const [X,setX] = useState(0)
+
+   -when you call useState(0) function it has one argument which has initial value of of state vairable.which componet track and store in component memory
+   -usestate  function return an array, array has only two values  one is state variable and secound is function setX.
+
+
+}
+
+function Counter(){
+
+    const [X,setX] = useState(0)
+    const [Y.setY] = useState(0)
+
+    return(
+        <>
+        Count: {X}
+        <button onClick= {setX(x+1)}>Incremeent</button>
+        <button onClick= {setX(x-1)}>Decrement</button>
+
+        Count:{Y}
+        <button onClick= {setY(Y+1)}>Incremeent</button>
+        <button onClick= {setY(Y-1)}>Decrement</button>
+        </>
+    )
+}
