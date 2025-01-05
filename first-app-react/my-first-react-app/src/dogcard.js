@@ -42,5 +42,15 @@ export const Userinfo = (props)=> {
         </>
     )
 }
+
+export const Courseinfo = (props)=>{
+    return(
+        <>
+        <h3>Courses</h3>
+        <h3>{props.name}</h3>
+        <h3>{props.price}</h3>
+        </>
+    )
+}
  
 
