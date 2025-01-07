@@ -2,7 +2,7 @@ Hooks
 what are hooks?
 =>Hooks are simple utility function or helper function.
 
- 
+ useState
 Example=>   
 import {useState} from "react"
 hooks are provided from react 
@@ -33,7 +33,7 @@ function Counter () {
 
    const [X,setX] = useState(0)
 
-   -when you call useState(0) function it has one argument which has initial value of of state vairable.which componet track and store in component memory
+   -when you call useState(0) function it has only one argument which has initial value of of state vairable.which componet track and store in component memory
    -usestate  function return an array, array has only two values  one is state variable and secound is function setX.
 
 
