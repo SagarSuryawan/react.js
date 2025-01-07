@@ -2,7 +2,7 @@
 import './App.css';
 import Dogcard from './dogcard.js';
 import { Userinfo,Courseinfo } from './dogcard.js';
-import Counter from './Counter.js';
+import Counter, { Counter1,Inputrender,Todoss } from './Counter.js';
 
 function App() {
   return (
@@ -15,6 +15,9 @@ function App() {
       <Userinfo name = "Sagar" age={29}/>
       <Courseinfo name = "web development" price = {3500}/>
       <Counter/>
+      <Counter1/>
+      <Inputrender/>
+      <Todoss/>
     </div>
   );
 }
