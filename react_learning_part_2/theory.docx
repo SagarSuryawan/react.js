@@ -101,3 +101,5 @@ export const Todoss = () => {
         </ul>
     )
 }
+
+PROPS DISCUSSION
