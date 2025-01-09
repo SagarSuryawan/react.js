@@ -1,11 +1,12 @@
+import './App.css'
 
+import Grid from './components/Grid/Grid'
 
 function App() {
   
-
   return (
     <>
-      tic tac toe
+      <Grid numberOfCards={9} />
     </>
   )
 }
