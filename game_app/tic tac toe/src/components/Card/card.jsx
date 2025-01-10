@@ -1,6 +1,6 @@
 import Icon from '../Icon/Icon'
 
-function Card({ player,onplay,index }){
+function Card({gameEnd, player,onplay,index }){
     let icon = <Icon />
     if (player === 'X'){
         icon = <Icon name = "cross"/>
@@ -10,10 +10,10 @@ function Card({ player,onplay,index }){
     }
 
     return (
-        <div className='card' onClick={() => onplay(index)}>
+        <div className='card' onClick={() =>!gameEnd && player == ""  && onplay(index)}>
             {icon}
         </div>
     )
 }
  
-export default Card;
+export default Card;    
