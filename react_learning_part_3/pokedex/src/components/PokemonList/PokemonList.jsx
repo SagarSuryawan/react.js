@@ -19,6 +19,10 @@ function PokemonList (){
 
 export default PokemonList
 
+// work of useEffect.?
+// => 
+// at first render useeffect is exiecuted any HTMLUnknownElement, i want to called useeffect on X changes not on y, means x valur changes callback code render.track changes of x not y.
+
 // what is USEEFFECT.?
 // => useeffect as componet loads,whatever passed in callback is execuated. for example [pokemonlist]
 // useeffect accepts two arguments a callback and dependency array.
