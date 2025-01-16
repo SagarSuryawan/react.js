@@ -1,5 +1,6 @@
 import './App.css'
-import Pokedex from './components/Search/pokedex'
+import Pokedex from './components/Pokedex/pokedex'
+import PokemonList from './components/PokemonList/PokemonList'
 
 function App() {
  
@@ -7,6 +8,7 @@ function App() {
   return (
     <>
       < Pokedex />
+      <PokemonList />
     </>
   )
 }

@@ -1,0 +1,13 @@
+input{
+    border: 1px dotted rgb(16, 16, 16);
+    height: 50px;
+}
+.search-wrapper{
+    width: 500px;
+    margin: 0 auto;
+}
+#input-wrapper{
+    margin: 2rem;
+    width: 100%;
+    padding: 1rem;
+}

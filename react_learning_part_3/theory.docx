@@ -1,0 +1,23 @@
+Api is => https://pokeapi.co/
+
+what is USEEFFECT.?
+=> useeffect as componet loads,whatever passed in callback is execuated. for example [pokemonlist]
+useeffect accepts two arguments a callback and dependency array.
+useEffect(() =>{ }, [])
+when callback execuat.?
+=>when a component render first time,if dependency array is not passed ,whenever component re-render callback code execuated everytime.if dependency array is present then only first time callback code execuated after it won't.
+
+what is dependency array.?
+=>
+
+App functionality
+=> whe home reloads , hit network request to pokedex api , once data is fetching it takes time to fetch at that time give shos loader.after that print 
+
+=> Creating pockedex app [useffect].?
+-we are using third party api,api is already build - up and with the help of api we fetch data in out app.Data is stored in api in and  we do somme interaction.
+-in this app we call API calls [network calls].
+
+Make a folder named components in src, in components make another folder search and pockedex.
+
+In Search Components 
+-the purpose of search component is that search pokemon given in input (for now Search component has input element exported to pokedex Components)

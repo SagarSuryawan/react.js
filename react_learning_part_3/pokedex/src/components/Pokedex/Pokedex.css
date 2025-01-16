@@ -1,0 +1,8 @@
+.pokedex-wrapper{
+    display:grid;
+    border: 2px solid blueviolet;
+
+}
+.pokedex-heading{
+    margin: 0 auto;
+}
