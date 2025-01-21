@@ -1,9 +1,19 @@
  work of useEffect.?
- => 
- at first render useeffect is exiecuted any HTMLUnknownElement, i want to called useeffect on X changes not on y, means x valur changes callback code render.track changes of x not y.
+ => useEffect accepts two arguments: a callback function and a dependency array.
+    The callback function contains the side effect logic.
+    The dependency array determines when the callback function should be executed.
+    -----------------------------------
+    After every render.
+    Only on the initial render. []
+    Only when specific variables change.[dependency1,dependency2]
+
+ at first render useeffect is exiecuted any HTMLUnknownElement, i want to called useeffect on X changes not on y, means x value changes callback code render.track changes of x not y.
 
  what is USEEFFECT.?
- => useeffect as componet loads,whatever passed in callback is execuated. for example [pokemonlist]
+ =>useEffect is a Hook in React that allows you to perform side effects in your functional components. Side effects can include things like data fetching, DOM manipulation, setting up subscriptions, or manually changing the state of your application.
+
+ 
+ useeffect as componet loads,whatever passed in callback is execuated. for example [pokemonlist]
  useeffect accepts two arguments a callback and dependency array.
  useEffect(() =>{ }, [])
  when callback execuat.?
@@ -39,7 +49,7 @@ when callback execuat.?
 =>when a component render first time,if dependency array is not passed ,whenever component re-render callback code execuated everytime.if dependency array is present then only first time callback code execuated after it won't.
 
 what is dependency array.?
-=>
+=>The empty array [] ensures that the effect runs only once each time the component appears on the screen (either after the initial load or after a page reload).
 
 App functionality
 => whe home reloads , hit network request to pokedex api , once data is fetching it takes time to fetch at that time give shos loader.after that print 
