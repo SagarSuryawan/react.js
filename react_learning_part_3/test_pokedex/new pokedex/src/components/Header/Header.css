@@ -1,0 +1,22 @@
+
+body {
+    margin: 0;
+    padding: 0;
+  }
+ 
+.pokdex-wrapper{
+    /* border: 1px solid black; */
+    overflow: hidden;
+    text-align: center;
+    background-color: #41c7b3;
+    width: 100%;
+}
+.appHeading{
+    letter-spacing: 2px;
+    color: rgb(62, 26, 70);
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Ensure consistent box sizing */
+}

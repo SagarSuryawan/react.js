@@ -1,0 +1,15 @@
+.search-box{
+    /* border: 1px solid red; */
+    width: 400px;
+    padding: 1rem 0;
+    margin: auto;
+    
+}
+#input-wrapper{
+    width: 100%;
+    height: 50px;
+}
+#input-wrapper:hover{
+    background-color: #49bbd15a;
+    transition: background-color 0.3s ease;
+}
