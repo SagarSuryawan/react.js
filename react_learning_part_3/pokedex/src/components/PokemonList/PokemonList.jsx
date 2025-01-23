@@ -16,13 +16,14 @@ function PokemonList (){
     async function fetchPokemons(){
         setisLoading(true)
         const response = await axios.get(pokedexUrl) //this fetch list of 20 pokemons
+        console.log("response",response)
 
         const pokemonResult = response.data.results   // we get the array of pokemons,this array has name and url,url for details of pokemons.
 
         setnextUrl(response.data.next)
         setprevUrl(response.data.previous)
 
-        console.log(response.data)
+       
         const pokemonResultPromise = pokemonResult.map((pokemon) =>axios.get(pokemon.url))  //iterating over the array of pokemons, and using their url to create array of promises,that will download those 20 pokemons.
 
 
@@ -63,6 +64,8 @@ function PokemonList (){
                 <Pokemon name={p.name} image = {p.image} key={p.id} />
             ))
             }
+            {/* If isLoading is true, it displays the text 'Loading ...' to indicate that the data is still being fetched.
+            If isLoading is false, it proceeds to render the Pokémon list. */}
             </div>
             <div className="controls">
                 <button disabled = {prevUrl == null} onClick={() =>setpokedexUrl(prevUrl)}>Prev</button>
