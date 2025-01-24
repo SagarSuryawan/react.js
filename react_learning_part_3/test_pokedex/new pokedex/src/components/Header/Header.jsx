@@ -1,4 +1,5 @@
  import './Header.css'
+ import Search from '../Search/Search'
  function Pokedex (){
 
     return (
@@ -6,7 +7,7 @@
 
             <h1 className="appHeading">Pokemon Shop</h1>
             <br />
-
+            <Search />
         </div>
     )
  }

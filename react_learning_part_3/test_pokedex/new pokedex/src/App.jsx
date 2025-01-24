@@ -1,6 +1,6 @@
 import Header from './components/Header/Header.jsx';
-import Search from './components/Search/Search';
 import './App.css'
+import PokemonList from './components/Pokemonlist/Pokemonlist.jsx';
 
 function App() {
  
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
     <Header />
-    <Search />
+    <PokemonList />
     </>
       
   )
