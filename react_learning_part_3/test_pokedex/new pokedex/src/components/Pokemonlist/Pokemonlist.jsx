@@ -1,17 +1,52 @@
 import axios from 'axios'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import Pokemon from '../Pokemon/Pokemon'
 
 function PokemonList(){
 
+    const [PokemonList,setPokemonList] = useState([])
+
+    const [isLoading,setIsloading] = useState(true)
+
+
     async function fetchpokemons (){
         const response = await axios.get('https://pokeapi.co/api/v2/pokemon')
-        console.log(response.data.results)
+        console.log(response.data.results)  //itrate on pokemon result, with map
+        const pokemonDetails = response.data.results
+        const pokemonResult =  pokemonDetails.map((pokemon) =>  axios.get(pokemon.url) )
+        const pokemonData = await axios.all(pokemonResult) 
+        console.log(pokemonData)
+        //axios.all is a function,in which passed array of promises, when all data fetch from array of promises then it shows data. 
+        
+        //save in pokemonlist line 6 for reference
+        const res = pokemonData.map((pokeData) =>{
+            const pokemon = pokeData.data
+            return {
+                id:pokemon.id,
+                name:pokemon.name,
+                image:(pokemon.sprites.other) ? pokemon.sprites.other.dream_world.front_default : pokemon.sprites.front_shiny,
+                type:pokemon.types
+            }
+        })
+        console.log("res",res)
+        setPokemonList(res)
+        setIsloading(false)
     }
     
     useEffect(()=>{
         fetchpokemons()
     },[])
+
+
+    return (
+        <div className='pokemon-list-wrapper'>
+                {
+                    (isLoading) ? 'Loading....' : PokemonList.map((p) => <Pokemon name = {p.name} image = {p.image } key={p.id}/>)
+                }
+        </div>
+    )
 }
+
 
 export default PokemonList
 
