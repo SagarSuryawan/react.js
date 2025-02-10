@@ -1,0 +1,9 @@
+
+.pokemon-image{
+    border: 2px solid blue;
+    margin: 10px 0;
+}
+.pokemon-name{
+    border: 2px solid green;
+    padding: 10px 0;
+}

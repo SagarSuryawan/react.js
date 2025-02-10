@@ -1,8 +1,15 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Pokemon from '../Pokemon/Pokemon'
+import './Pokemonlist.css'
 
 function PokemonList(){
+
+    const [pokedexUrl,setpokdexUrl] = useState('https://pokeapi.co/api/v2/pokemon') //url bind statae for pagination before it was simple url stored in variable. 
+
+
+    const [nextUrl,setNextUrl] = useState('');
+    const [prevUrl,setPrevUrl] = useState('')
 
     const [PokemonList,setPokemonList] = useState([])  //Stores the fetched Pokémon data (initialized as an empty array []).
 
@@ -11,8 +18,13 @@ function PokemonList(){
 
 
     async function fetchpokemons (){
-        const response = await axios.get('https://pokeapi.co/api/v2/pokemon')
-        console.log(response.data.results)
+        setIsloading(true)
+        const response = await axios.get(pokedexUrl)
+        console.log(response)
+
+        //pagination
+        setNextUrl(response.data.next)
+        setPrevUrl(response.data.previous)
 
         //Fetchind individual pokemon details
         const pokemonDetails = response.data.results  //contains an array of Pokémon with name and URL to fetch more details.
@@ -38,15 +50,23 @@ function PokemonList(){
     
     useEffect(()=>{
         fetchpokemons()
-    },[])
+    },[pokedexUrl])
 
 
     return (
         <div className='pokemon-list-wrapper'>
+            <div>
                 {
-                    (isLoading) ? 'Loading....' : PokemonList.map((p) => <Pokemon name = {p.name} image = {p.image } id={p.id}/>)
+                    (isLoading) ? 'Loading....' : PokemonList.map((p) => <Pokemon name = {p.name} image = {p.image } key={p.id}/>)
                 }
+            </div>
+            
+            <div className="pagination">
+                <button disabled = {prevUrl == null} onClick={() => setpokdexUrl(prevUrl)} >Prev</button>
+                <button disabled = {nextUrl == null} onClick={() => setpokdexUrl(nextUrl)}>Next</button>
+            </div>
         </div>
+   
     )
 }
 // If isLoading is true, "Loading..." is displayed.
@@ -94,5 +114,6 @@ now we fetch a data on component first load....
 3) check out the result and exract a pokemon and their details....   which is console.log(result.data.results)
 as you check result you saw that their is name and another url for details of pokemons. 
 
+when we clicked on next or previous button using usestate url changes, onces urlchanges then useEffect function again exiecute with new url and perint next 20 pokemons..
 
 */
