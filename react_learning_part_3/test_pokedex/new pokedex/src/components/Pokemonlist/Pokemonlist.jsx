@@ -4,17 +4,20 @@ import Pokemon from '../Pokemon/Pokemon'
 
 function PokemonList(){
 
-    const [PokemonList,setPokemonList] = useState([])
+    const [PokemonList,setPokemonList] = useState([])  //Stores the fetched Pokémon data (initialized as an empty array []).
 
-    const [isLoading,setIsloading] = useState(true)
+
+    const [isLoading,setIsloading] = useState(true)  //Tracks whether data is still being loaded (true initially)
 
 
     async function fetchpokemons (){
         const response = await axios.get('https://pokeapi.co/api/v2/pokemon')
-        console.log(response.data.results)  //itrate on pokemon result, with map
-        const pokemonDetails = response.data.results
+        console.log(response.data.results)
+
+        //Fetchind individual pokemon details
+        const pokemonDetails = response.data.results  //contains an array of Pokémon with name and URL to fetch more details.
         const pokemonResult =  pokemonDetails.map((pokemon) =>  axios.get(pokemon.url) )
-        const pokemonData = await axios.all(pokemonResult) 
+        const pokemonData = await axios.all(pokemonResult)  //executes all API calls concurrently and waits for all responses.
         console.log(pokemonData)
         //axios.all is a function,in which passed array of promises, when all data fetch from array of promises then it shows data. 
         
@@ -41,12 +44,13 @@ function PokemonList(){
     return (
         <div className='pokemon-list-wrapper'>
                 {
-                    (isLoading) ? 'Loading....' : PokemonList.map((p) => <Pokemon name = {p.name} image = {p.image } key={p.id}/>)
+                    (isLoading) ? 'Loading....' : PokemonList.map((p) => <Pokemon name = {p.name} image = {p.image } id={p.id}/>)
                 }
         </div>
     )
 }
-
+// If isLoading is true, "Loading..." is displayed.
+// Otherwise, the Pokémon list is mapped, and each Pokémon is rendered using the <Pokemon /> component.
 
 export default PokemonList
 

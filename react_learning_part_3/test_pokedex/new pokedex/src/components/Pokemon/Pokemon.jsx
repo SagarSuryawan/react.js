@@ -1,8 +1,8 @@
-function Pokemon( {name,image} ){
+function Pokemon( {name,image,id} ){
 
     return (
         <>
-        <div>{name}</div>
+        <div>{name},{id}</div>
         <div>
             <img src={image} alt="" />
         </div>
