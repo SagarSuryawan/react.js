@@ -5,20 +5,20 @@ import './Pokemonlist.css'
 
 function PokemonList(){
 
-    const [pokedexUrl,setpokdexUrl] = useState('https://pokeapi.co/api/v2/pokemon') //url bind statae for pagination before it was simple url stored in variable. 
+    const [pokedexUrl,setpokdexUrl] = useState('https://pokeapi.co/api/v2/pokemon') //url bind statae for pagination before it was simple url stored in variable. It updates when you click the "Next" or "Prev" button.
 
 
     const [nextUrl,setNextUrl] = useState('');
     const [prevUrl,setPrevUrl] = useState('')
 
     const [PokemonList,setPokemonList] = useState([])  //Stores the fetched Pokémon data (initialized as an empty array []).
-
+    //Stores the Pokémon data fetched from the API.
 
     const [isLoading,setIsloading] = useState(true)  //Tracks whether data is still being loaded (true initially)
-
+    //Tracks whether the data is still being fetched to show a loading state.
 
     async function fetchpokemons (){
-        setIsloading(true)
+        setIsloading(true)  //This ensures that the UI displays a loading message until the data is fetched.
         const response = await axios.get(pokedexUrl)
         console.log(response)
 
@@ -45,12 +45,13 @@ function PokemonList(){
         })
         console.log("res",res)
         setPokemonList(res)
-        setIsloading(false)
+        setIsloading(false) //The loading state is set to false so that Pokémon data is displayed.
     }
     
     useEffect(()=>{
         fetchpokemons()
     },[pokedexUrl])
+    //Runs fetchpokemons whenever pokedexUrl changes.This ensures that new Pokémon data is fetched when pagination buttons are clicked.
 
 
     return (
@@ -115,5 +116,20 @@ now we fetch a data on component first load....
 as you check result you saw that their is name and another url for details of pokemons. 
 
 when we clicked on next or previous button using usestate url changes, onces urlchanges then useEffect function again exiecute with new url and perint next 20 pokemons..
+
+HOW IT WORKS
+4) First Render
+
+When the component mounts, useEffect runs, calling fetchpokemons().
+On pokedexUrl Change
+
+When you click the Next or Prev button, pokedexUrl updates.
+This triggers useEffect, which re-fetches the Pokémon list for the new page.
+
+5) Works Together
+useState stores API URLs, Pokémon data, and loading status.
+useEffect runs fetchpokemons() whenever pokedexUrl changes.
+fetchpokemons() fetches Pokémon data, updates state (PokemonList, nextUrl, prevUrl).
+Pagination buttons update pokedexUrl, triggering a new API call.
 
 */
