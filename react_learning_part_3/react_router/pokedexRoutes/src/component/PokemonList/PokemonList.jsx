@@ -1,6 +1,7 @@
-import { useState }  from "react";
+import { useEffect, useState }  from "react";
 import axios from 'axios'
 import Pokemons from "../Pokemons/Pokemon";
+import './PokemonList.css'
    function PokemonList() {
     
       const [pokedexUrl, setpokdexUrl] = useState('https://pokeapi.co/api/v2/pokemon')
@@ -8,6 +9,9 @@ import Pokemons from "../Pokemons/Pokemon";
 
 
       const [PokemonList,setPokemonList] = useState([])
+
+      const[nextUrl, setNextUrl] = useState('')
+      const[prevUrl, setPrevUrl] = useState('')
 
       async function fetchPokemon(){
 
@@ -21,6 +25,9 @@ import Pokemons from "../Pokemons/Pokemon";
          const pokemonResults = pokemonDetails.map((pokemon) => axios.get(pokemon.url))
          const pokemonData = await axios.all(pokemonResults)
          console.log(pokemonData)
+
+         setNextUrl(response.data.next)
+         setPrevUrl(response.data.previous)
 
          const res = pokemonData.map((pokeData) => {
             const pokemon = pokeData.data
@@ -37,7 +44,7 @@ import Pokemons from "../Pokemons/Pokemon";
          setPokemonList(res)
          setIsloading(false)
       }
-      useState(()=>{
+      useEffect(()=>{
          fetchPokemon()
       },[pokedexUrl])
       
@@ -50,6 +57,10 @@ import Pokemons from "../Pokemons/Pokemon";
                 {
                     (isLoading) ? 'Loading....' : PokemonList.map((p) => <Pokemons name = {p.name} image = {p.image } key={p.id}/>)
                 }
+            </div>
+            <div className="pagination">
+                <button disabled = {prevUrl == null} onClick={() => setpokdexUrl(prevUrl)} >Prev</button>
+                <button disabled = {nextUrl == null} onClick={() => setpokdexUrl(nextUrl)}>Next</button>
             </div>
 
          </div>

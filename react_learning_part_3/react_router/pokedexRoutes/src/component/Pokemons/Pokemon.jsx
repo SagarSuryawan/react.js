@@ -1,7 +1,8 @@
+import './Pokemon.css'
 function Pokemons ({name,image}) {
 
     return (
-        <div>
+        <div className="pokemon-wrapper">
             <div>{name}</div>
             <img src={image} alt="" />
         </div>

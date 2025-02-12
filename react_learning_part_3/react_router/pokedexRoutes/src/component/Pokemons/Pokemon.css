@@ -1,0 +1,22 @@
+.pokemon-wrapper{
+
+padding: 15px;
+margin:  10px 0 ;
+background-color: #b79e9e;
+border-radius: 10px;
+transition: 0.5s;
+}
+.pokemon-wrapper:hover{
+    background-color: #ffffff;
+    
+}
+.pokemon-wrapper>div{
+    text-align: center;
+    letter-spacing: 10px;
+    font-size: 20px;
+}
+.pokemon-wrapper>img{
+
+width: 300px;
+height: 300px;
+}
