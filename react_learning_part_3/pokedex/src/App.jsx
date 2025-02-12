@@ -1,13 +1,13 @@
 import './App.css'
 import Pokedex from './components/Pokedex/pokedex'
-import PokemonList from './components/PokemonList/PokemonList'
+import CustomRoute from './routes/CustomRoutes'
+ 
 
 function App() {
  
   return (
     <>
-      < Pokedex />
-      <PokemonList />
+      <CustomRoute/>
     </>
   )
 }
