@@ -42,8 +42,7 @@ function PokemonList (){
                 id:pokemon.id,
                 name:pokemon.name,
                 image:(pokemon.sprites.other) ? pokemon.sprites.other.dream_world.front_default : pokemon.sprites.front_shiny,
-                types:pokemon.types,
-
+                types:pokemon.types
             }
         }))
         console.log("pokemon",res)
@@ -61,7 +60,7 @@ function PokemonList (){
             <div className="pokemon-wrapper">
             {isLoading ? 'Loading ...' : 
             PokemonList.map((p)=>(
-                <Pokemon name={p.name} image = {p.image} key={p.id} />
+                <Pokemon name={p.name} image = {p.image} key={p.id} id={p.id} />
             ))
             }
             {/* If isLoading is true, it displays the text 'Loading ...' to indicate that the data is still being fetched.

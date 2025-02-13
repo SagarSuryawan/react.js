@@ -29,4 +29,14 @@ Like this  this wi;; enables whole 'React Router' inside your whole app
 
 ** CONFIGURE ROUTES **
 
-outside your compomnent , make new folder in src folder 
+make custom component,custom routes where we add different route in Routes Component.where decide in which route ,which component renders,
+in app.jsxm render customRoutes,we can add common part acroos common pages 
+
+
+** AFTER CLICK IT SHOWS DETAILS OF POKEMON **
+what we think of this like we have pokemon component ,pokemon component is like a div a we can do that wrap div in anchor tag. problem we get is page is refresh,it's defeat a purpose of SPA. 
+instead of anchor tag we use Link tag where 'to' propertise is present insted of 'href' 
+
+onces we click on pokemon ,pokemonDetails page opens we fetch id no: from url 
+
+here is Hooks comes in picture useParams

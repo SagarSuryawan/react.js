@@ -1,0 +1,34 @@
+.pokemon-details-wrapper{
+    text-align: center;
+    
+}
+.pokemonName{
+    font-size: xx-large;
+    margin: 10px 0;
+    
+}
+.pokemonHeight{
+font-size: 15px;
+margin: 10px 0;
+
+}
+.pokemonWeight{
+font-size: 15px;
+margin: 10px 0;
+
+}
+.type{
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    font-size: larger;
+    margin: auto;
+    width: fit-content;
+}
+.type div {
+    border: 1px solid black;
+    background-color: #ba9999;
+    padding: 5px;
+    border-radius: 10px;
+
+}
