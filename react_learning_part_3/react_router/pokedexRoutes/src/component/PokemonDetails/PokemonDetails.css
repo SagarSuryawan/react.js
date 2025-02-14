@@ -1,0 +1,28 @@
+.pokemon-details-wrapper{
+    width: fit-content;
+    margin:  10px auto;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #9a7f7f;
+}
+.pokemonName,.pokemonWeight,.pokemonHeight{
+    margin: 10px 0px
+}
+.type{
+    display: flex;
+    gap: 10px;
+    width: fit-content;
+    /* border: 1px solid red; */
+    margin: auto;
+}
+.type>div{
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #dcbaba;
+}
+.pokemonImage{
+    width: 300px;
+    height: 300px
+}

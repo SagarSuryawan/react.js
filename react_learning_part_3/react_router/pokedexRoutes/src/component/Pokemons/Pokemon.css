@@ -17,6 +17,17 @@ transition: 0.5s;
 }
 .pokemon-wrapper>img{
 
+width: 40px;
+height: 40px;
+}
+.PokemonImage{
 width: 300px;
 height: 300px;
+}
+.PokemonName{
+    /* border: 1px solid black; */
+    text-align: center;
+}
+a {
+    text-decoration: none !important;
 }

@@ -55,7 +55,7 @@ import './PokemonList.css'
          <div className='pokemon-list-wrapper'>
             <div>
                 {
-                    (isLoading) ? 'Loading....' : PokemonList.map((p) => <Pokemons name = {p.name} image = {p.image } key={p.id}/>)
+                    (isLoading) ? 'Loading....' : PokemonList.map((p) => <Pokemons name = {p.name} image = {p.image } key={p.id} id= {p.id}/>)
                 }
             </div>
             <div className="pagination">
