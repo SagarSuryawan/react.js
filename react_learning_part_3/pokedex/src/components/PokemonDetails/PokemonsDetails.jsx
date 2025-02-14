@@ -7,7 +7,7 @@ function PokemonDetail () {
     const {id} = useParams()
     const [pokemon, setPokemon] = useState({})  //useState({}) initializes pokemon as an empty object ({}).
     // setPokemon is a function that updates pokemon with new data.
-    //When setPokemon is called, React re-renders the component with the updated state.
+
     async function downloadPokemon(){
         const response =  await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
         console.log("pokemon sa",response.data)
