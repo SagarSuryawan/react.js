@@ -29,7 +29,9 @@ function PokemonList(){
         //Fetchind individual pokemon details
         const pokemonDetails = response.data.results  //contains an array of Pokémon with name and URL to fetch more details.
         const pokemonResult =  pokemonDetails.map((pokemon) =>  axios.get(pokemon.url) )
-        const pokemonData = await axios.all(pokemonResult)  //executes all API calls concurrently and waits for all responses.
+        const pokemonData = await axios.all(pokemonResult)
+        console.log("test",pokemonData)
+        //executes all API calls concurrently and waits for all responses.
         console.log(pokemonData)
         //axios.all is a function,in which passed array of promises, when all data fetch from array of promises then it shows data. 
         
