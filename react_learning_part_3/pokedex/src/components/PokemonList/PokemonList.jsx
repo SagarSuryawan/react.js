@@ -11,12 +11,13 @@ function PokemonList (){
         pokedexUrl:'https://pokeapi.co/api/v2/pokemon',
         nextUrl:"",
         prevUrl:""
-
     })
-
+    // this is intital state of useStates().
+    
     async function fetchPokemons(){
-        // setisLoading(true)
-       setpokemonListState((state) =>({... state, isLoading: true}))
+        // setisLoading(true) 
+        //Keeping all properties of pokemonListState the same (...state).// Only changing isLoading to true.
+       setpokemonListState((state) =>({... state, isLoading: true}))  
         // const response = await axios.get(pokedexUrl) //this fetch list of 20 pokemons
         const response = await axios.get(pokemonListState.pokedexUrl)
         console.log("response",response)
@@ -80,15 +81,14 @@ function PokemonList (){
             If isLoading is false, it proceeds to render the Pokémon list. */}
             </div>
             <div className="controls">
-                <button disabled = {pokemonListState.prevUrl == null} onClick={() => {
-                    const urlToset = pokemonListState.prevUrl;
-                    setpokemonListState({...pokemonListState, pokedexUrl :pokemonListState.prevUrl})
-                }}>Prev</button>
+                <button disabled = {pokemonListState.prevUrl == null} onClick={() => setpokemonListState({...pokemonListState,pokedexUrl:pokemonListState.prevUrl}) }>Prev</button>
 
-                <button disabled = {pokemonListState.nextUrl == null} onClick={() => {
+                {/* <button disabled = {pokemonListState.nextUrl == null} onClick={() => {
                     const urlToset = pokemonListState.nextUrl;
                     setpokemonListState({...pokemonListState, pokedexUrl :pokemonListState.nextUrl})
-                }}>Next</button>
+                }}>Next</button> */}
+
+                <button disabled = {pokemonListState.nextUrl == null} onClick={() => setpokemonListState({...pokemonListState,pokedexUrl:pokemonListState.nextUrl}) }>Next</button>
             </div>
         </div>
     )
