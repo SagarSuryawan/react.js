@@ -113,3 +113,35 @@ Example 2: Updating pokedexUrl in Next/Prev Buttons
 1️⃣ Use the spread operator (...state) when updating only part of an object.
 2️⃣ If replacing the entire state (like a simple number or string), don’t use the spread operator.
 3️⃣ Without spreading, you might accidentally delete parts of the state!
+
+The reason we don't use the spread operator (...state) when accessing pokemonListState.pokedexUrl in:
+
+
+const response = await axios.get(pokemonListState.pokedexUrl);
+is because we are only reading the value, not updating the state.
+
+🚀 When Do We Use the Spread Operator?
+The spread operator (...state) is used only when updating state to keep other values unchanged.
+
+✅ Example: Using Spread to Update State
+
+setpokemonListState((state) => ({ ...state, isLoading: true }));
+✔ Keeps PokemonList, pokedexUrl, nextUrl, prevUrl.
+✔ Only updates isLoading.
+
+🔍 Why Don’t We Use Spread When Reading pokemonListState.pokedexUrl?
+When we write:
+
+
+const response = await axios.get(pokemonListState.pokedexUrl);
+we are only reading pokedexUrl from pokemonListState.
+
+❌ Incorrect way (Trying to Spread While Reading)
+
+const response = await axios.get({...pokemonListState}.pokedexUrl); 
+🚨 Problem: {...pokemonListState} creates a new object, but we are still only accessing pokedexUrl. Spreading here does nothing useful and is unnecessary.
+
+💡 Summary
+1️⃣ Spread operator (...state) is needed only when updating state to preserve other properties.
+2️⃣ When reading state values (pokemonListState.pokedexUrl), no need for spreading—just use it directly.
+3️⃣ Spreading while reading is pointless because it doesn't change anything.
