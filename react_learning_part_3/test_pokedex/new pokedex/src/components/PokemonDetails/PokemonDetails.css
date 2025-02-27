@@ -1,11 +1,12 @@
 .pokemon-details-wrapper{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 10px auto;
     width: 60%;
     display: grid;
     justify-content: center;
     align-items: center;
     padding: 10px;
+    background-color: #dfd6d6;
 }
 .pokemonName{
     margin-top: 5px;

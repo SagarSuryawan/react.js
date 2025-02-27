@@ -4,28 +4,39 @@ import Pokemon from '../Pokemon/Pokemon'
 import './Pokemonlist.css'
 
 function PokemonList(){
+    // const [pokedexUrl,setpokdexUrl] = useState('https://pokeapi.co/api/v2/pokemon') //url bind statae for pagination before it was simple url stored in variable. It updates when you click the "Next" or "Prev" button.
+    // const [nextUrl,setNextUrl] = useState('');
+    // const [prevUrl,setPrevUrl] = useState('')
+    // const [PokemonList,setPokemonList] = useState([])  //Stores the fetched Pokémon data (initialized as an empty array []).
+    // //Stores the Pokémon data fetched from the API.
+    // const [isLoading,setIsloading] = useState(true)  //Tracks whether data is still being loaded (true initially)
+    // //Tracks whether the data is still being fetched to show a loading state.
 
-    const [pokedexUrl,setpokdexUrl] = useState('https://pokeapi.co/api/v2/pokemon') //url bind statae for pagination before it was simple url stored in variable. It updates when you click the "Next" or "Prev" button.
+    const [pokemonListState,setpokemonListState] = useState({
+        PokemonList:[],
+        isLoading:true,
+        pokedexUrl:'https://pokeapi.co/api/v2/pokemon',
+        nextUrl:"",
+        prevUrl:""
+    })
 
 
-    const [nextUrl,setNextUrl] = useState('');
-    const [prevUrl,setPrevUrl] = useState('')
-    
-
-    const [PokemonList,setPokemonList] = useState([])  //Stores the fetched Pokémon data (initialized as an empty array []).
-    //Stores the Pokémon data fetched from the API.
-
-    const [isLoading,setIsloading] = useState(true)  //Tracks whether data is still being loaded (true initially)
-    //Tracks whether the data is still being fetched to show a loading state.
 
     async function fetchpokemons (){
-        setIsloading(true)  //This ensures that the UI displays a loading message until the data is fetched.
-        const response = await axios.get(pokedexUrl)
+        // setIsloading(true)  //This ensures that the UI displays a loading message until the data is fetched.
+        setpokemonListState((state)=>({...state,isLoading:true}))  //this new wat to manage state
+        const response = await axios.get(pokemonListState.pokedexUrl)
         console.log(response)
-
+        const Result = response.data.results
         //pagination
-        setNextUrl(response.data.next)
-        setPrevUrl(response.data.previous)
+
+        setpokemonListState((state) =>({
+            ...state,
+            nextUrl:response.data.next,
+            prevUrl:response.data.previous
+        }))
+        // setNextUrl(response.data.next)
+        // setPrevUrl(response.data.previous)
 
         //Fetchind individual pokemon details
         const pokemonDetails = response.data.results  //contains an array of Pokémon with name and URL to fetch more details.
@@ -47,13 +58,18 @@ function PokemonList(){
             }
         })
         console.log("res",res)
-        setPokemonList(res)
-        setIsloading(false) //The loading state is set to false so that Pokémon data is displayed.
+        setpokemonListState((state)=>
+            ({
+            ...state,
+            PokemonList:res,
+            isLoading:false
+        }))
+        // setIsloading(false) //The loading state is set to false so that Pokémon data is displayed.
     }
     
     useEffect(()=>{
         fetchpokemons()
-    },[pokedexUrl])
+    },[pokemonListState.pokedexUrl])
     //Runs fetchpokemons whenever pokedexUrl changes.This ensures that new Pokémon data is fetched when pagination buttons are clicked.
 
 
@@ -61,13 +77,14 @@ function PokemonList(){
         <div className='pokemon-list-wrapper'>
             <div className='pokemon-block'>
                 {
-                    (isLoading) ? 'Loading....' : PokemonList.map((p) => <Pokemon name = {p.name} image = {p.image } key={p.id} id={p.id}/>)
+                    pokemonListState.isLoading ? 'Loading....' : pokemonListState.PokemonList.map((p) => (<Pokemon name = {p.name} image = {p.image } key={p.id} id={p.id}/>))
                 }
             </div>
             
             <div className="pagination">
-                <button disabled = {prevUrl == null} onClick={() => setpokdexUrl(prevUrl)} >Prev</button>
-                <button disabled = {nextUrl == null} onClick={() => setpokdexUrl(nextUrl)}>Next</button>
+                <button disabled = {pokemonListState.prevUrl == null} onClick={() => setpokemonListState({...pokemonListState,pokedexUrl:pokemonListState.prevUrl})} >Prev</button>
+
+                <button disabled = {pokemonListState.nextUrl == null} onClick={() =>setpokemonListState({...pokemonListState,pokedexUrl:pokemonListState.nextUrl})}>Next</button>
             </div>
         </div>
    
