@@ -1,9 +1,27 @@
-
-.pokemon-image{
-    border: 2px solid blue;
-    margin: 10px 0;
+.pokemons{
+    margin:10px 0;
+    transition: 0.5s;
+    height: fit-content;
 }
+.pokemons:hover{
+    background-color: #dca7a7;
+    border-radius: 20px;
+    border: 1px solid rgb(19, 19, 23);
+}
+.pokemon-image{
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pokemon-image>img{
+    width:200px;
+    height: 200px
+}
+
 .pokemon-name{
-    border: 2px solid green;
     padding: 10px 0;
+    width: fit-content;
+    margin: 5px auto;
+    letter-spacing: 2px
 }

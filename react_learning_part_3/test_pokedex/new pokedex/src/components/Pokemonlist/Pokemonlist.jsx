@@ -10,6 +10,7 @@ function PokemonList(){
 
     const [nextUrl,setNextUrl] = useState('');
     const [prevUrl,setPrevUrl] = useState('')
+    
 
     const [PokemonList,setPokemonList] = useState([])  //Stores the fetched Pokémon data (initialized as an empty array []).
     //Stores the Pokémon data fetched from the API.
@@ -58,9 +59,9 @@ function PokemonList(){
 
     return (
         <div className='pokemon-list-wrapper'>
-            <div>
+            <div className='pokemon-block'>
                 {
-                    (isLoading) ? 'Loading....' : PokemonList.map((p) => <Pokemon name = {p.name} image = {p.image } key={p.id}/>)
+                    (isLoading) ? 'Loading....' : PokemonList.map((p) => <Pokemon name = {p.name} image = {p.image } key={p.id} id={p.id}/>)
                 }
             </div>
             

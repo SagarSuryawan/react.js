@@ -1,5 +1,6 @@
  import './Header.css'
  import Search from '../Search/Search'
+  
  function Pokedex (){
 
     return (
