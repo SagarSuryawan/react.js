@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import axios from "axios"
 import { useEffect, useState } from "react";
 import './PokemonsDetails.css'
+import usePokemonList from "../../hooks/usePokemonList";
 
 function PokemonDetail () {
     const {id} = useParams()
@@ -19,6 +20,8 @@ function PokemonDetail () {
             types:response.data.types.map((t) => t.type.name)
         })
     }
+
+    const [pokemonListState,setpokemonListState] = usePokemonList('https://pokeapi.co/api/v2/type/fire')
 
  
     useEffect(()=> {

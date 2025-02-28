@@ -43,7 +43,7 @@ here is Hooks comes in picture useParams
 
 
 
-EXPLANATION ABOUT MANEAGEING USESTATES
+++ EXPLANATION ABOUT MANEAGEING USESTATES ++
 
 🎯 Why Do We Use the Spread Operator (...state)?
 Imagine you have a notebook where you write different types of notes:
@@ -145,3 +145,10 @@ const response = await axios.get({...pokemonListState}.pokedexUrl);
 1️⃣ Spread operator (...state) is needed only when updating state to preserve other properties.
 2️⃣ When reading state values (pokemonListState.pokedexUrl), no need for spreading—just use it directly.
 3️⃣ Spreading while reading is pointless because it doesn't change anything.
+
+
+
+++ CUSTOM HOOKS ++
+
+ Benifite of custom hooks
+ => function are testable.
