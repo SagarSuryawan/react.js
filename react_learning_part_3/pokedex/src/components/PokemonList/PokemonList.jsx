@@ -1,10 +1,10 @@
 import "./PokemonList.css"
-import Pokemon from "../Pokemon/Pokemon.jsx"
-import usePokemonList from "../../hooks/usePokemonList.jsx"
+import Pokemon from "../Pokemon/Pokemon.jsx";
+import usePokemonList from "../../hooks/usePokemonList.jsx";
 
 function PokemonList (){
 
-  const [pokemonListState, setpokemonListState] = usePokemonList('https://pokeapi.co/api/v2/pokemon') 
+  const {pokemonListState, setpokemonListState} = usePokemonList("https://pokeapi.co/api/v2/pokemon")
 
     return (
         <div className="pokemon-list-wrapper">  
@@ -24,7 +24,7 @@ function PokemonList (){
                     const urlToset = pokemonListState.nextUrl;
                     setpokemonListState({...pokemonListState, pokedexUrl :pokemonListState.nextUrl})
                 }}>Next</button> */}
-
+ 
                 <button disabled = {pokemonListState.nextUrl == null} onClick={() => setpokemonListState({...pokemonListState,pokedexUrl:pokemonListState.nextUrl}) }>Next</button>
             </div>
         </div>

@@ -21,9 +21,9 @@ function PokemonDetail () {
         })
     }
 
-    const [pokemonListState,setpokemonListState] = usePokemonList('https://pokeapi.co/api/v2/type/fire')
+   
 
- 
+  
     useEffect(()=> {
         downloadPokemon()
     },[])

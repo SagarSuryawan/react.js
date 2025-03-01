@@ -2,16 +2,17 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import PokemonList from "../components/PokemonList/PokemonList"
 
- function usePokemonList (url) {
+ function usePokemonList () {
 
         const [pokemonListState,setpokemonListState] = useState({
             PokemonList: [],
             isLoading:true,
-            pokedexUrl:url,
+            pokedexUrl:"https://pokeapi.co/api/v2/pokemon",
             nextUrl:"",
             prevUrl:""
         })
-    // this is intital state of useStates().
+        console.log(pokemonListState,setpokemonListState,"checking")
+     // this is intital state of useStates().
     
         async function fetchPokemons(){
             // setisLoading(true) 
@@ -32,11 +33,8 @@ import PokemonList from "../components/PokemonList/PokemonList"
                     prevUrl:response.data.previous}
             ))
 
-        
             const pokemonResultPromise = pokemonResult.map((pokemon) =>axios.get(pokemon.url))  //iterating over the array of pokemons, and using their url to create array of promises,that will download those 20 pokemons.
 
-
-            
             const pokemonData = await axios.all(pokemonResultPromise)
         //passing that promise array to axios.all and this is array of pokemons detailed data.
 
@@ -54,21 +52,25 @@ import PokemonList from "../components/PokemonList/PokemonList"
                     types:pokemon.types
                 }
             }))
-            console.log("pokemon",res)
+            // console.log("pokemon",res)
             setpokemonListState((state)=> 
                 ({...state,
                     PokemonList:res,
                     isLoading:false}
-            ))
+        ))
+    }
             // setisLoading(false)
-        }
+       
 
         useEffect(()=>{
             fetchPokemons();
         },[pokemonListState.pokedexUrl]);
         //fetch at component only first load.
 
-        return {pokemonListState,setpokemonListState}
- }
+        return {pokemonListState,  setpokemonListState}
+        // return .. whatever we used in other component
+     }
+    
+ 
 
 export default usePokemonList
