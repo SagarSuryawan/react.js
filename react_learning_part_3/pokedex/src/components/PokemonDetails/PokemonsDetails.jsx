@@ -4,13 +4,20 @@ import { useEffect, useState } from "react";
 import './PokemonsDetails.css'
 import usePokemonList from "../../hooks/usePokemonList";
 
-function PokemonDetail () {
+function PokemonDetail ({ pokemonName }) {
+
     const {id} = useParams()
     const [pokemon, setPokemon] = useState({})  //useState({}) initializes pokemon as an empty object ({}).
     // setPokemon is a function that updates pokemon with new data.
 
     async function downloadPokemon(){
-        const response =  await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        let response;
+        if(pokemonName){
+            response =  await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+        }else{
+             response =  await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        }
+        //  response =  await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
         console.log("pokemon sa",response.data)
         setPokemon({
             name:response.data.name,
@@ -26,16 +33,16 @@ function PokemonDetail () {
   
     useEffect(()=> {
         downloadPokemon()
-    },[])
+    },[id,pokemonName])
 
-    /*useEffect runs downloadPokemon() when the component mounts.
-downloadPokemon() fetches Pokémon details and updates pokemon using setPokemon().
-Dependency array ([]) makes sure this runs only once (on mount).
+        /*useEffect runs downloadPokemon() when the component mounts.
+    downloadPokemon() fetches Pokémon details and updates pokemon using setPokemon().
+    Dependency array ([]) makes sure this runs only once (on mount).
 
-*/
+   */
 
 
-return(
+ return(
     
     <div className="pokemon-details-wrapper">
 
@@ -48,7 +55,7 @@ return(
             {pokemon.types && pokemon.types.map((t) => <div key={t}> {t} </div>)}
         </div>
     </div>
-)   
+ )   
 
 }
 
