@@ -1,6 +1,6 @@
 import "./PokemonList.css"
 import Pokemon from "../Pokemon/Pokemon.jsx";
-import usePokemonList from "../../hooks/usePokemonList.jsx";
+import usePokemonList from "../../hooks/usePokemonList.js";
 
 function PokemonList (){
 
