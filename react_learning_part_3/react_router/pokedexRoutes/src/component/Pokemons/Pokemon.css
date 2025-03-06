@@ -4,13 +4,12 @@ margin:  10px 0 ;
 display: grid;
 justify-content: center;
 align-items: center;
-
 border-radius: 10px;
 transition: 0.5s;
 }
+
 .pokemon-wrapper:hover{
-    background-color: #b79e9e;
-    
+    background-color: #b79e9e;   
 }
 .pokemon-wrapper>div{
     text-align: center;
@@ -18,18 +17,26 @@ transition: 0.5s;
     font-size: 20px;
 }
 .pokemon-wrapper>img{
-
 width: 40px;
 height: 40px;
 }
+
 .PokemonImage{
 width: 200px;
 height: 200px;
 }
+.pokemonImageBlock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .PokemonName{
     /* border: 1px solid black; */
     text-align: center;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1rem;
 }
+
 a {
     text-decoration: none !important;
 }

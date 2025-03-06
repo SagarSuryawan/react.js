@@ -8,7 +8,7 @@ function Pokemons ({name,image,id}) {
             <Link to= { `pokemon/${id}` } >
 
             <div className="PokemonName">{name}</div>
-            <div>
+            <div className="pokemonImageBlock">
                 <img className="PokemonImage" src={image} alt="" />
             </div>
             
