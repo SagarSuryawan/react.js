@@ -23,6 +23,11 @@ export default Pokedex
 
 
 /* (!searchTerm):
+The user starts typing "Pikachu".
+onChange triggers with each keystroke.
+The function (e) => updateSearchTerm(e.target.value) runs.
+It calls updateSearchTerm("Pikachu"), updating the search term.
+The parent component (Pokedex.js) receives this update and re-renders to show Pokémon details.
 
 If searchTerm is empty or falsy, it renders the <PokemonList /> component.
 This means the user sees a list of Pokémon when they haven’t searched for anything.

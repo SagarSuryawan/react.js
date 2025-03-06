@@ -5,8 +5,7 @@ function Search ({updateSearchTerm}){
     
     return(
         <div className='search-wrapper'>
-            <input id='input-wrapper' type="text" placeholder="pokemon name ..."
-            onChange={(e) =>updateSearchTerm(e.target.value)}
+            <input onChange={(e) =>updateSearchTerm(e.target.value)} id='input-wrapper' type="text" placeholder="pokemon name ..."
             />
            
         </div>
