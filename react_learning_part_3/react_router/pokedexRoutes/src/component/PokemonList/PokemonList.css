@@ -1,5 +1,5 @@
 .pokemon-list-wrapper{
-    width: fit-content;
+    width: 80%;
     margin: auto;
     padding: 15px;
     
@@ -16,4 +16,13 @@
     width: 60px;
     height: 30px;
     margin: 0 10px;
+}
+.list{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(5,1fr);
+    padding: 1rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
 }

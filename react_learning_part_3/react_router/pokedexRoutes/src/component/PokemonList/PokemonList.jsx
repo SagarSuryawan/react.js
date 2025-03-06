@@ -53,7 +53,7 @@ import './PokemonList.css'
       return(
 
          <div className='pokemon-list-wrapper'>
-            <div>
+            <div className="list">
                 {
                     (isLoading) ? 'Loading....' : PokemonList.map((p) => <Pokemons name = {p.name} image = {p.image } key={p.id} id= {p.id}/>)
                 }

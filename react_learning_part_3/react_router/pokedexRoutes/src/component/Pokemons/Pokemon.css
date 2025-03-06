@@ -1,13 +1,15 @@
 .pokemon-wrapper{
-
 padding: 15px;
 margin:  10px 0 ;
-background-color: #b79e9e;
+display: grid;
+justify-content: center;
+align-items: center;
+
 border-radius: 10px;
 transition: 0.5s;
 }
 .pokemon-wrapper:hover{
-    background-color: #ffffff;
+    background-color: #b79e9e;
     
 }
 .pokemon-wrapper>div{
@@ -21,8 +23,8 @@ width: 40px;
 height: 40px;
 }
 .PokemonImage{
-width: 300px;
-height: 300px;
+width: 200px;
+height: 200px;
 }
 .PokemonName{
     /* border: 1px solid black; */
