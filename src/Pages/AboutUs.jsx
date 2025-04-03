@@ -5,9 +5,43 @@ import imageTwo from '../assets/Images/aboutPage/image-two.webp'
 import imageFour from '../assets/Images/aboutPage/image-four.jpg'
 import imageFive from '../assets/Images/aboutPage/image-five.jpg'
 import imageOne from '../assets/Images/aboutPage/image-one.webp'
+import CurousalSlide from "../Components/CurousalSlide";
 
 
 function AboutUs() {
+
+    const celebrities = [
+        {
+            title:"Sagar Suryawanshi_1",
+            description:"Education is the most poerful tool that can change the world",
+            image:imageOne,
+            slideNum :1
+
+        },
+        {
+            title:"Sagar Suryawanshi_2",
+            description:"Education is the most poerful tool that can change the world",
+            image:imageTwo,
+            slideNum :2
+
+        },
+        {
+            title:"Sagar Suryawanshi_3",
+            description:"Education is the most poerful tool that can change the world",
+            image:imageFour,
+            slideNum :3
+
+        },
+        {
+            title:"Sagar Suryawanshi_4",
+            description:"Education is the most poerful tool that can change the world",
+            image:imageFive,
+            slideNum :4
+
+        }
+    
+    
+    ]
 
     return(
         <HomeLayout>
@@ -32,66 +66,19 @@ function AboutUs() {
 
                     </div>
                 </div>
-
+         </div>
                 {/* Curousal */}
-
-        <div className="carousel w-1/3 my-16 m-auto">
-                <div id="slide1" className="carousel-item relative w-full flex items-center justify-around">
-                    <div className=" flex flex-col items-center justify-center gap-4 px-[15%]">
-                        <img
-                        src={imageOne}
-                        className="w-40 rounded-full border-2 border-gray-400 "/>
-                        <p>Education is the most poerful tool that can change the world</p>
-                        <h3>Sagar Suryawanshi</h3>
-                        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide4" className="btn btn-circle">❮</a>
-                        <a href="#slide2" className="btn btn-circle">❯</a>
-                        </div>
-                    </div>
-                </div>
-                <div id="slide2" className="carousel-item relative w-full flex items-center justify-around ">
-                    <div className=" flex flex-col items-center justify-center gap-4 px-[15%]">
-                        <img
-                        src={imageTwo}
-                        className="w-40 rounded-full border-2 border-gray-400 " />
-                         <p>Education is the most poerful tool that can change the world</p>
-                         <h3>Sagar Suryawanshi</h3>
-                        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide1" className="btn btn-circle">❮</a>
-                        <a href="#slide3" className="btn btn-circle">❯</a>
-                        </div>
-                    </div>
-                </div>
-                <div id="slide3" className="carousel-item relative w-full flex items-center justify-around ">
-                    <div className=" flex flex-col items-center justify-center gap-4 px-[15%]">
-                            <img
-                            src={imageFour}
-                            className="w-40 rounded-full border-2 border-gray-400 " />
-                             <p>Education is the most poerful tool that can change the world</p>
-                             <h3>Sagar Suryawanshi</h3>
-                            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                            <a href="#slide2" className="btn btn-circle">❮</a>
-                            <a href="#slide4" className="btn btn-circle">❯</a>
-                            </div>
-                        </div>
-                </div>
-                <div id="slide4" className="carousel-item relative w-full flex items-center justify-around ">
-                    <div className=" flex flex-col items-center justify-center gap-4 px-[15%]">
-                            <img
-                            src={imageFive}
-                            className="w-40 rounded-full border-2 border-gray-400 " />
-                             <p>Education is the most poerful tool that can change the world</p>
-                             <h3>Sagar Suryawanshi</h3>
-                            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                            <a href="#slide3" className="btn btn-circle">❮</a>
-                            <a href="#slide1" className="btn btn-circle">❯</a>
-                            </div>
-                    </div>
-                </div>
+                <div className="flex justify-center">
+         <div className="carousel w-1/3  m-auto my-30">  
+                    {celebrities && celebrities.map(celebrity=> 
+                        (<CurousalSlide {...celebrity}
+                             key = {celebrity.slideNum} 
+                             totalSlides={celebrities.length} />))}
+            </div>
             </div>
 
-        </div>
-        </HomeLayout>
+        
+</HomeLayout>
     )
 }
 
