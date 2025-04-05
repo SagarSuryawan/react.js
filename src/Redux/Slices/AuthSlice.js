@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 
@@ -7,6 +7,9 @@ const initialState = {
     data: localStorage.getItem('data') || {}
 
 }
+
+export const createAccount = createAsyncThunk("")
+// create is asynchoronous action
 
 const AuthSlice = createSlice({
     name:'authSlicer',
